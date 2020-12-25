@@ -1,0 +1,18 @@
+name: Repo Sync
+on:
+  workflow_dispatch:
+  watch:
+  push:
+    types: started
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: repo-sync/github-sync@v2
+        name: 同步分支
+        with:
+            source_repo: "https://github.com/pmlican/lc_jd_scripts.git"
+            source_branch: "master"
+            destination_branch: "master"
+            github_token: ${{ secrets.PAT }}
