@@ -6,11 +6,16 @@ on:
     types: started
 jobs:
   repo-sync:
+    env:
+      PAT: ${{ secrets.PAT }} 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - uses: repo-sync/github-sync@v2
         name: 同步分支
+        if: env.PAT
         with:
             source_repo: "https://github.com/pmlican/lc_jd_scripts.git"
             source_branch: "master"
