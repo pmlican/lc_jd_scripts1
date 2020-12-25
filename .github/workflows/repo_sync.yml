@@ -19,5 +19,5 @@ jobs:
         with:
             source_repo: "https://github.com/pmlican/lc_jd_scripts.git"
             source_branch: "master"
-            destination_branch: "master"
+            destination_branch: "main"
             github_token: ${{ secrets.PAT }}
