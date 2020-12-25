@@ -19,5 +19,11 @@ jobs:
         with:
             source_repo: "https://github.com/pmlican/lc_jd_scripts.git"
             source_branch: "master"
-            destination_branch: "main"
+            destination_branch: "master"
+            github_token: ${{ secrets.PAT }}
+      - uses: repo-sync/pull-request@v2
+        name: Create pull request
+        with:
+            source_branch: master
+            destination_branch: master
             github_token: ${{ secrets.PAT }}
